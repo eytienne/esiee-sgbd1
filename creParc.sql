@@ -1,13 +1,13 @@
 CREATE TABLE Segment (
     indIP VARCHAR(11) PRIMARY KEY,
     nomSegment VARCHAR(20) NOT NULL,
-    etage TINYINT(1)
+    etage TINYINT (1)
 );
 
 CREATE TABLE Salle (
     nSalle VARCHAR(7) PRIMARY KEY,
     nomSalle VARCHAR(20) NOT NULL,
-    nbPoste TINYINT(2),
+    nbPoste TINYINT (2),
     indIP VARCHAR(11)
 );
 
@@ -16,10 +16,8 @@ CREATE TABLE Poste (
     nomPoste VARCHAR(20) NOT NULL,
     indIP VARCHAR(11),
     ad VARCHAR(3),
-    CONSTRAINT CK_Poste_ad CHECK (
-        CAST(ad AS SIGNED) >= 0
-        AND CAST(ad AS SIGNED) <= 255
-    ),
+    CONSTRAINT CK_Poste_ad CHECK (CAST(ad AS SIGNED) >= 0
+        AND CAST(ad AS SIGNED) <= 255),
     typePoste VARCHAR(9),
     nSalle VARCHAR(7)
 );
