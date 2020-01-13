@@ -15,7 +15,11 @@ CREATE TABLE Poste (
     nPoste VARCHAR(7) PRIMARY KEY,
     nomPoste VARCHAR(20) NOT NULL,
     indIP VARCHAR(11),
-    ad VARCHAR(3) CHECK CAST(ad AS INTEGER) as a AND a >= 0 AND a <= 255,
+    ad VARCHAR(3),
+    CONSTRAINT CK_Poste_ad CHECK (
+        CAST(ad AS SIGNED) >= 0
+        AND CAST(ad AS SIGNED) <= 255
+    ),
     typePoste VARCHAR(9),
     nSalle VARCHAR(7)
 );
@@ -26,7 +30,8 @@ CREATE TABLE Logiciel (
     dateAch DATETIME,
     version VARCHAR(7),
     typeLog VARCHAR(9),
-    prix DECIMAL(6,2) CHECK prix >= 0
+    prix DECIMAL(6, 2),
+    CONSTRAINT CK_Logiciel_prix CHECK (prix >= 0)
 );
 
 CREATE TABLE Installer (
@@ -41,4 +46,3 @@ CREATE TABLE Types (
     typeLP VARCHAR(9) PRIMARY KEY,
     nomType VARCHAR(20)
 );
-
