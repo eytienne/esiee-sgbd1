@@ -153,3 +153,29 @@ VALUES
         'UNIX',
         1400
     );
+INSERT INTO
+    Types(typeLP, nomType)
+VALUES
+    ('TX', 'Terminal X-Window'),
+    ('UNIX', 'Système Unix'),
+    ('PCNT', 'PC Windows NT'),
+    ('PCWS', 'PC Windows'),
+    ('NC', 'NEtwork Computer');
+ALTER TABLE
+    Installer
+MODIFY
+    numIns AUTO_INCREMENT = 1;
+INSERT INTO
+    Installer(nPoste, nLog, dateIns)
+VALUES
+    ('p2', 'log1', '2003-05-15'),
+    ('p2', 'log2', '2003-09-17'),
+    ('p4', 'log5', ''),
+    ('p6', 'log6', '2003-05-20'),
+    ('p6', 'log1', '2003-05-20'),
+    ('p8', 'log2', '2003-05-19'),
+    ('p8', 'log6', '2003-05-20'),
+    ('p11', 'log3', '2003-04-20'),
+    ('p12', 'log4', '2003-04-20'),
+    ('p11', 'log7', '2003-04-20'),
+    ('p7', 'log7', '2003-04-01');
